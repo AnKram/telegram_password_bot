@@ -61,7 +61,8 @@ def on_chat_message(msg):
     incoming_text = incoming_text.split()
     print(incoming_text)
     if len(incoming_text) == 2:
-        if is_me(chat_id, incoming_text) is not True:
+        incoming_text = is_me(chat_id, incoming_text)
+        if incoming_text is False:
             send_message(chat_id, 'ошибка')
             return
 
